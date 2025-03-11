@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted  # Windows Server üzerinde çalışacak
+    runs-on: self-hosted  # Windows Server'daki runner'ı kullanacak
 
     steps:
       - name: Kodu Checkout Et
