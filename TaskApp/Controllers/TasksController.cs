@@ -14,7 +14,8 @@ namespace TaskApp.Controllers
         new TaskItem { Id = 3, Title = "Spor yap", IsCompleted = false },
         new TaskItem { Id = 4, Title = "Kitap oku", IsCompleted = true },
         new TaskItem { Id = 5, Title = "Koşu yap", IsCompleted = true },
-        new TaskItem { Id = 6, Title = "Dans et", IsCompleted = false }
+        new TaskItem { Id = 6, Title = "Dans et", IsCompleted = false },
+        new TaskItem { Id = 7, Title = "Araştırma yap", IsCompleted = true }
     };
 
         [HttpGet]
