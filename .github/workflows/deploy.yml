@@ -24,10 +24,14 @@ jobs:
       - name: Projeyi Build Et
         run: dotnet publish -c Release -o ./publish
 
+      - name: IIS'i Durdur
+        run: |
+          iisreset /stop
+
       - name: IIS wwwroot’a Kopyala
         run: |
           robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO
 
-      - name: IIS'i Yeniden Başlat
+      - name: IIS'i Başlat
         run: |
-          iisreset
+          iisreset /start
