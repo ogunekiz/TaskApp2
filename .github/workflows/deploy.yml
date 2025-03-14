@@ -37,10 +37,11 @@ jobs:
           icacls "C:\inetpub\wwwroot\webapi" /grant Everyone:F /T /C /Q
 
       - name: IIS wwwroot’a Kopyala
-        shell: pwsh
+        shell: powershell
         run: |
           robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO
           if ($LASTEXITCODE -eq 1) { exit 0 }
+
 
       - name: IIS'i Başlat
         run: |
