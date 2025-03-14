@@ -38,7 +38,7 @@ jobs:
 
       - name: IIS wwwroot’a Kopyala
         run: |
-          robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO
+          robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO || exit 0
 
       - name: IIS'i Başlat
         run: |
