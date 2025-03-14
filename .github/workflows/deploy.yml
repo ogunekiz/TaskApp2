@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted  # Windows Server'daki runner'ı kullanacak
+    runs-on: self-hosted
 
     steps:
       - name: Kodu Checkout Et
@@ -24,13 +24,21 @@ jobs:
       - name: Projeyi Build Et
         run: dotnet publish -c Release -o ./publish
 
+      - name: Publish Klasörünü Kontrol Et
+        run: ls ./publish
+
       - name: IIS'i Durdur
         run: |
           iisreset /stop
+          sleep 5
+
+      - name: Yetkileri Ayarla
+        run: |
+          icacls "C:\inetpub\wwwroot\webapi" /grant Everyone:F /T /C /Q
 
       - name: IIS wwwroot’a Kopyala
         run: |
-          robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO
+          robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO || exit 0
 
       - name: IIS'i Başlat
         run: |
