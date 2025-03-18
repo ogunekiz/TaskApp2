@@ -39,7 +39,7 @@ jobs:
       - name: IIS wwwroot’a Kopyala
         shell: powershell
         run: |
-          robocopy ./publish C:\inetpub\wwwroot\webapi /E /XO
+          robocopy ./publish C:\inetpub\wwwroot\ci_cd_api /E /XO
           if ($LASTEXITCODE -eq 1) { exit 0 }
 
 
